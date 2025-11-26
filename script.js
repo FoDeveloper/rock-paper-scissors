@@ -14,3 +14,11 @@ let getComputerChoice = () => {
     return Math.floor(Math.random() * 3) == 0 ?  "Rock" : Math.floor(Math.random() * 3) == 1 ?  "Paper" : "Scissors";}
 
 console.log(getComputerChoice());
+
+//function getHumanChoice() {
+//    prompt("Rock, Paper, or Scissors?");
+//}
+
+let getHumanChoice = (choice) => prompt("Rock, Paper, or Scissors", choice);
+
+console.log(getHumanChoice());
