@@ -7,8 +7,14 @@
 // The random output is a number variable, so assigning each of the three variable to a third of the output range could achieve our goal.//
 
 //function getComputerChoice() {
-//  return Math.floor(Math.random() * 3);
-// }
+//  return Math.floor(Math.random() * 3) == 0
+// ? "Rock"
+// : Math.floor(Math.random() * 3) == 1
+// ? "Paper";
+// : "Scissors";
+// };
+let humanScore = 0;
+let computerScore = 0;
 
 let getComputerChoice = () => {
     return Math.floor(Math.random() * 3) == 0 ?  "Rock" : Math.floor(Math.random() * 3) == 1 ?  "Paper" : "Scissors";}
@@ -22,3 +28,6 @@ console.log(getComputerChoice());
 let getHumanChoice = () => prompt("Rock, Paper, or Scissors?");
 
 console.log(getHumanChoice());
+
+console.log(humanScore);
+console.log(computerScore);
