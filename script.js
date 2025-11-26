@@ -17,7 +17,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 let getComputerChoice = () => {
-    return Math.floor(Math.random() * 3) == 0 ?  "Rock" : Math.floor(Math.random() * 3) == 1 ?  "Paper" : "Scissors";}
+    return Math.floor(Math.random() * 3) == 0 ?  "rock" : Math.floor(Math.random() * 3) == 1 ?  "paper" : "scissors";}
 
 console.log(getComputerChoice());
 
@@ -31,3 +31,11 @@ console.log(getHumanChoice());
 
 console.log(humanScore);
 console.log(computerScore);
+
+// function playRound(humanChoice,computerChoice) {
+// return (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") || (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") || (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") ? (`You lost! $computerChoice beats $humanChoice.`) : (humanChoice.toLowerCase() == computerChoice) ? (`Tie! Play again`) : ("You Win!")
+//}
+
+let playRound = (humanChoice, computerChoice) => {
+let humanNormalized = humanChoice.toLowerCase();
+return (humanNormalized === "rock" && computerChoice == "paper") || (humanNormalized === "scissors" && computerChoice === "rock") || (humanNormalized === "paper" && computerChoice === "scissors") ? (`You lost! ${computerChoice.toUpperCase()} beats ${humanNormalized.toUpperCase()}`) : (humanNormalized === computerChoice) ? (`Tie! Play again`) : ("You Win!")}
