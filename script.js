@@ -40,9 +40,6 @@ let playRound = (humanChoice, computerChoice) => {
 let humanNormalized = humanChoice.toLowerCase();
 return (humanNormalized === "rock" && computerChoice == "paper") || (humanNormalized === "scissors" && computerChoice === "rock") || (humanNormalized === "paper" && computerChoice === "scissors") ? (`Loser! ${computerChoice.toUpperCase()} beats ${humanNormalized.toUpperCase()}`) : (humanNormalized === computerChoice) ? (`Tie!`) : (`Winner! ${humanNormalized.toUpperCase()} beats ${computerChoice.toUpperCase()}`)}
 
-
-    
-
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
