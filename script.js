@@ -27,10 +27,10 @@ console.log(getComputerChoice());
 
 let getHumanChoice = () => prompt("Rock, Paper, or Scissors?");
 
-console.log(getHumanChoice());
+//console.log(getHumanChoice());
 
-console.log(humanScore);
-console.log(computerScore);
+//console.log(humanScore);
+//console.log(computerScore);
 
 // function playRound(humanChoice,computerChoice) {
 // return (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") || (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") || (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") ? (`You lost! $computerChoice beats $humanChoice.`) : (humanChoice.toLowerCase() == computerChoice) ? (`Tie! Play again`) : ("You Win!")
@@ -38,4 +38,12 @@ console.log(computerScore);
 
 let playRound = (humanChoice, computerChoice) => {
 let humanNormalized = humanChoice.toLowerCase();
-return (humanNormalized === "rock" && computerChoice == "paper") || (humanNormalized === "scissors" && computerChoice === "rock") || (humanNormalized === "paper" && computerChoice === "scissors") ? (`You lost! ${computerChoice.toUpperCase()} beats ${humanNormalized.toUpperCase()}`) : (humanNormalized === computerChoice) ? (`Tie! Play again`) : ("You Win!")}
+return (humanNormalized === "rock" && computerChoice == "paper") || (humanNormalized === "scissors" && computerChoice === "rock") || (humanNormalized === "paper" && computerChoice === "scissors") ? (`Loser! ${computerChoice.toUpperCase()} beats ${humanNormalized.toUpperCase()}`) : (humanNormalized === computerChoice) ? (`Tie!`) : (`Winner! ${humanNormalized.toUpperCase()} beats ${computerChoice.toUpperCase()}`)}
+
+
+    
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+console.log(playRound(humanSelection, computerSelection));
