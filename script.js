@@ -36,11 +36,48 @@ let getHumanChoice = () => prompt("Rock, Paper, or Scissors?");
 // return (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") || (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") || (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") ? (`You lost! $computerChoice beats $humanChoice.`) : (humanChoice.toLowerCase() == computerChoice) ? (`Tie! Play again`) : ("You Win!")
 //}
 
+// let playRound = (humanChoice, computerChoice) => {
+// let humanNormalized = humanChoice.toLowerCase();
+// return (humanNormalized === "rock" && computerChoice == "paper") || (humanNormalized === "scissors" && computerChoice === "rock") || (humanNormalized === "paper" && computerChoice === "scissors") ? (`Loser! ${computerChoice.toUpperCase()} beats ${humanNormalized.toUpperCase()}`) : (humanNormalized === computerChoice) ? (`Tie!`) : (`Winner! ${humanNormalized.toUpperCase()} beats ${computerChoice.toUpperCase()}`)}
+
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
+
+// console.log(playRound(humanSelection, computerSelection));
+
 let playRound = (humanChoice, computerChoice) => {
-let humanNormalized = humanChoice.toLowerCase();
-return (humanNormalized === "rock" && computerChoice == "paper") || (humanNormalized === "scissors" && computerChoice === "rock") || (humanNormalized === "paper" && computerChoice === "scissors") ? (`Loser! ${computerChoice.toUpperCase()} beats ${humanNormalized.toUpperCase()}`) : (humanNormalized === computerChoice) ? (`Tie!`) : (`Winner! ${humanNormalized.toUpperCase()} beats ${computerChoice.toUpperCase()}`)}
+    let humanNormalized = humanChoice.toLowerCase();
+    let result;
+    let message;
+    if ((humanNormalized === "rock" && computerChoice === "paper") || (humanNormalized === "scissors" && computerChoice === "rock") || (humanNormalized === "paper" && computerChoice === "scissors")) {
+        result = "Loser!";
+        message = `${result} ${computerChoice.toUpperCase()} beats ${humanNormalized.toUpperCase()}`;}
+    
+    else if (humanNormalized === computerChoice) {
+        result = `Tie!`
+        message = `${result} ${humanNormalized.toUpperCase()} is equal to ${computerChoice.toUpperCase()}`;
+    }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+    else {
+        result = "Winner!";
+        message = `${result} ${humanNormalized.toUpperCase()} beats ${computerChoice.toUpperCase()}`;
+    }
+    return {
+        result,
+        message};}
 
-console.log(playRound(humanSelection, computerSelection));
+
+    let scoreKeeper = () => {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    const round = playRound(humanSelection,computerSelection);
+    if (round.result === "Loser!") {
+        ++computerScore
+    }
+    else if (round.result === "Winner!") {
+        ++humanScore
+    }
+    console.log(round.message);
+    return (`Human: ${humanScore}, CPU: ${computerScore}`);}
+
+    console.log(scoreKeeper());
