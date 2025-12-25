@@ -1,6 +1,7 @@
 let getComputerChoice = () => {
     let random = (Math.random() * 3);
     return Math.floor(random) === 0 ?  "rock" : Math.floor(random) === 1 ?  "paper" : "scissors";}
+
 let humanScore = 0;
 let computerScore = 0;
 let gameOver;
@@ -15,15 +16,18 @@ let playRound = (humanChoice, computerChoice) => {
     else {
         result = "Winner!";}
         return(result);}
+
 const resultDiv = document.createElement("div");
 document.body.appendChild(resultDiv);
 const scoreDiv = document.createElement("div");
 document.body.appendChild(scoreDiv);
+const humanWinner = document.createElement("div");
+const cpuWinner = document.createElement("div");
+
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-const humanWinner = document.createElement("div");
-const cpuWinner = document.createElement("div");
+
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
@@ -45,6 +49,7 @@ buttons.forEach((button) => {
 
        else if (roundResult === "Tie!") {
        outcome = "Tie!";}
+
        resultDiv.textContent = `Round Winner: ${outcome}`;
        scoreDiv.textContent = `Human:${humanScore} - CPU:${computerScore}`;
        
@@ -57,5 +62,8 @@ buttons.forEach((button) => {
         gameOver = "over";
         cpuWinner.textContent = "You Lose!";
         document.body.appendChild(cpuWinner);
-       }})})
+       }}
+    )
+  }
+)
        
